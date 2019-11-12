@@ -8,12 +8,16 @@ namespace vigenere_library
 {
     static public class vig
     {
+        public static string alphabet { get; set; } = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-        private static string _alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; // I know this is basically unnecesary as it is right now. This is done for later update ability
-        public static string alphabet
+        public static class Capitalize // This was added to support more characters. Change was made to support the password manager and similar projects with similar requirements
         {
-            get { return _alphabet; }
-            set { _alphabet = value; }
+            public static bool isCapital = true;
+            static public void enable()
+            { isCapital = true; }
+
+            static public void disable()
+            { isCapital = false; }
         }
 
         static public string encrypt(string plainText, string key)
@@ -21,10 +25,13 @@ namespace vigenere_library
 
             int temp;
             int overFlow;
-            string vigOutput = "";
+            StringBuilder sb = new StringBuilder();
 
-            plainText = plainText.ToUpper();
-            key = key.ToUpper();
+            if (Capitalize.isCapital) // a normal vigenere cipher requires the input to be uppercase. This makes sure the input is turned to uppercase if a new alphabet is provided that does not require uppercase
+            {
+                plainText = plainText.ToUpper();
+                key = key.ToUpper();
+            }
 
             for (int i = 0; i <= plainText.Length - 1; i++)
             {
@@ -32,26 +39,29 @@ namespace vigenere_library
                 if (temp >= alphabet.Length)
                 {
                     overFlow = temp - alphabet.Length;
-                    vigOutput += alphabet[overFlow];
+                    sb.Append(alphabet[overFlow]);
                 }
                 else
                 {
-                    vigOutput += alphabet[temp];
+                    sb.Append(alphabet[temp]);
                 }
 
             }
 
-            return vigOutput;
+            return sb.ToString();
         }
 
         static public string decrypt(string plainText, string key)
         {
             int temp;
             int overFlow;
-            string vigOutput = "";
+            StringBuilder sb = new StringBuilder();
 
-            plainText = plainText.ToUpper();
-            key = key.ToUpper();
+            if (Capitalize.isCapital) // a normal vigenere cipher requires the input to be uppercase. This makes sure the input is turned to uppercase if a new alphabet is provided that does not require uppercase
+            {
+                plainText = plainText.ToUpper();
+                key = key.ToUpper();
+            }
 
             for (int i = 0; i <= plainText.Length - 1; i++)
             {
@@ -59,22 +69,21 @@ namespace vigenere_library
                 if (temp >= alphabet.Length)
                 {
                     overFlow = temp - alphabet.Length;
-                    vigOutput += alphabet[overFlow];
+                    sb.Append(alphabet[overFlow]);
                 }
                 else if (temp < 0)
                 {
                     overFlow = alphabet.Length + temp;
-                    vigOutput += alphabet[overFlow];
+                    sb.Append(alphabet[overFlow]);
                 }
                 else
                 {
-                    vigOutput += alphabet[temp];
+                    sb.Append(alphabet[temp]);
                 }
 
             }
 
-            return vigOutput;
-
+            return sb.ToString();
         }
 
     }

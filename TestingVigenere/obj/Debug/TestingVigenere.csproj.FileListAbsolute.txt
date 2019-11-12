@@ -1,0 +1,9 @@
+F:\Projects\C#\Projects\Vigenere\3. vignere library\TestingVigenere\bin\Debug\TestingVigenere.exe.config
+F:\Projects\C#\Projects\Vigenere\3. vignere library\TestingVigenere\bin\Debug\TestingVigenere.exe
+F:\Projects\C#\Projects\Vigenere\3. vignere library\TestingVigenere\bin\Debug\TestingVigenere.pdb
+F:\Projects\C#\Projects\Vigenere\3. vignere library\TestingVigenere\bin\Debug\vigenere library.dll
+F:\Projects\C#\Projects\Vigenere\3. vignere library\TestingVigenere\bin\Debug\vigenere library.pdb
+F:\Projects\C#\Projects\Vigenere\3. vignere library\TestingVigenere\obj\Debug\TestingVigenere.csprojAssemblyReference.cache
+F:\Projects\C#\Projects\Vigenere\3. vignere library\TestingVigenere\obj\Debug\TestingVigenere.csproj.CopyComplete
+F:\Projects\C#\Projects\Vigenere\3. vignere library\TestingVigenere\obj\Debug\TestingVigenere.exe
+F:\Projects\C#\Projects\Vigenere\3. vignere library\TestingVigenere\obj\Debug\TestingVigenere.pdb
